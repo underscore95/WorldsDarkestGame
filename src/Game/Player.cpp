@@ -1,0 +1,72 @@
+#include "Player.h"
+#include "../Game.h"
+#include "GameScene.h"
+#include <cassert>
+#include <iostream>
+#include "../GameOverScene.h"
+
+void Player::handleInput(float dt)
+{
+	if (secsAlive < 1)
+		return;
+
+	Vector2 dp = { 0, 0 };
+	if (IsKeyDown(KEY_W)) dp.y -= 1;
+	if (IsKeyDown(KEY_S)) dp.y += 1;
+	if (IsKeyDown(KEY_A)) dp.x -= 1;
+	if (IsKeyDown(KEY_D)) dp.x += 1;
+
+	if (dp.x != 0 || dp.y != 0) {
+		vectorNormalize(dp);
+		vectorScale(dp, speed * dt);
+
+		Vector2 prevPosition = { collider.x, collider.y };
+
+		collider.x += dp.x;
+		collider.y += dp.y;
+
+		if (isColliding(WALL)) {
+			collider.x = prevPosition.x;
+			collider.y = prevPosition.y;
+		}
+		else {
+			isMoving = true;
+		}
+	}
+}
+
+Player::Player(unsigned int level) : level{ level }
+{
+	collider.x = 1280 / 2;
+	collider.y = 720 / 2;
+	collider.width = 50;
+	collider.height = 50;
+}
+
+void Player::update(float dt)
+{
+	if (secsAlive < 1)
+		secsAlive += dt;
+
+	if (isMoving) {
+		isMoving = false;
+
+		getScene().rendering = isColliding(LIGHT_AREA);
+	}
+
+	if (isColliding(ENEMY)) [[unlikely]] {
+		setScene(new GameOverScene("You Died! You reached level " + std::to_string(level) + "!"));
+		}
+
+		if (isColliding(GOAL)) [[unlikely]] {
+			if (level >= 1)
+				setScene(new GameOverScene("You have completed all the levels!"));
+			else
+				setScene(new GameScene(level + 1));
+			}
+}
+
+void Player::render()
+{
+	DrawRectangleRec(collider, WHITE);
+}
