@@ -14,9 +14,11 @@ int main() {
 	InitWindow(1280, 720, "Worlds Darkest Game");
 
 	InitAudioDevice();
+#ifdef NDEBUG
 	music = LoadMusicStream("assets/music.mp3");
 	music.looping = true;
 	PlayMusicStream(music);
+#endif
 
 	scene = new GameScene(0);
 
@@ -35,7 +37,7 @@ int main() {
 		}
 
 #ifndef NDEBUG
-	//	std::cout << GetMouseX() << " " << GetMouseY() << std::endl;
+		std::cout << GetMouseX() << " " << GetMouseY() << std::endl;
 #endif
 
 		const auto endFrame = std::chrono::high_resolution_clock::now();

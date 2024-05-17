@@ -55,7 +55,8 @@ void Player::update(float dt)
 	}
 
 	if (isColliding(ENEMY)) [[unlikely]] {
-		setScene(new GameOverScene("You Died! You reached level " + std::to_string(level) + "!"));
+		setScene(new GameScene(level));
+		return;
 		}
 
 		bool reachedGoal = isColliding(GOAL);
@@ -63,7 +64,7 @@ void Player::update(float dt)
 		reachedGoal = reachedGoal || IsKeyPressed(KEY_G);
 #endif
 		if (reachedGoal) [[unlikely]] {
-			if (level >= 1)
+			if (level >= 100)
 				setScene(new GameOverScene("You have completed all the levels!"));
 			else
 				setScene(new GameScene(level + 1));
