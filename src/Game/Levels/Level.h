@@ -8,6 +8,7 @@
 #include <raylib.h>
 #include "../Goal.h"
 #include "../Portal.h"
+#include "../Door.h"
 
 class Level {
 public:

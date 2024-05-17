@@ -39,6 +39,8 @@ Player::Player(unsigned int level) : level{ level }
 	collider.y = 720 / 2;
 	collider.width = 50;
 	collider.height = 50;
+
+	collisionMask = GameObject::PLAYER;
 }
 
 void Player::update(float dt)

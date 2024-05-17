@@ -21,13 +21,15 @@ protected:
 	Rectangle collider{ 0,0, 0, 0 };
 
 public:
+	static constexpr uint64_t NONE = 0;
 	static constexpr uint64_t WALL = 1 << 0;
 	static constexpr uint64_t LIGHT_AREA = 1 << 1;
 	static constexpr uint64_t ENEMY = 1 << 2;
 	static constexpr uint64_t GOAL = 1 << 3;
 	static constexpr uint64_t PORTAL = 1 << 4;
+	static constexpr uint64_t PLAYER = 1 << 5;
 
-	uint64_t collisionMask = 0;
+	uint64_t collisionMask = NONE;
 
 	virtual void handleInput(float dt) = 0;
 	virtual void update(float dt) = 0;
