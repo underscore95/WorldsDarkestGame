@@ -13,7 +13,7 @@ project ("WorldsDarkestGame")
 
 include(C:/libs/vcpkg-master/scripts/buildsystems/vcpkg.cmake)
 
-add_executable (WorldsDarkestGame "src/Game.cpp" "src/GameObject.h"  "src/Game.h" "src/Scene.h" "src/Scene.cpp" "src/Game/GameScene.h" "src/Game/GameScene.cpp" "src/Game/Player.h" "src/Game/Player.cpp" "src/Utils/Math.h"   "src/Game/Wall.h" "src/Game/Wall.cpp" "src/GameObject.cpp" "src/Game/Levels/Level.h" "src/Game/Levels/Level0.h" "src/Game/Levels/Level.cpp" "src/Game/Light.h"  "src/Game/enemies/Enemy.h"  "src/Game/enemies/PathEnemy.h" "src/GameOverScene.h" "src/GameOverScene.cpp" "src/Game/Goal.h" "src/Game/Levels/Level1.h" "src/Game/Levels/Level2.h" "src/Game/Levels/Level3.h" "src/Game/Portal.h" "src/Game/Portal.cpp")
+add_executable (WorldsDarkestGame "src/Game.cpp" "src/GameObject.h"  "src/Game.h" "src/Scene.h" "src/Scene.cpp" "src/Game/GameScene.h" "src/Game/GameScene.cpp" "src/Game/Player.h" "src/Game/Player.cpp" "src/Utils/Math.h"   "src/Game/Wall.h" "src/Game/Wall.cpp" "src/GameObject.cpp" "src/Game/Levels/Level.h" "src/Game/Levels/Level0.h" "src/Game/Levels/Level.cpp" "src/Game/Light.h"  "src/Game/enemies/Enemy.h"  "src/Game/enemies/PathEnemy.h" "src/GameOverScene.h" "src/GameOverScene.cpp" "src/Game/Goal.h" "src/Game/Levels/Level1.h" "src/Game/Levels/Level2.h" "src/Game/Levels/Level3.h" "src/Game/Portal.h" "src/Game/Portal.cpp" "src/Game/Levels/Level4.h")
 
 find_package(raylib CONFIG REQUIRED)
 target_link_libraries(WorldsDarkestGame PRIVATE raylib)
