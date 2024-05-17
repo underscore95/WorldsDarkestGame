@@ -3,6 +3,8 @@
 #include "Game.h"
 #include "Scene.h"
 
+bool GameObject::playerInLight = true;
+
 const bool GameObject::isColliding(const uint64_t collisionMask) const
 {
 	for (auto gameObject : getScene().getGameObjects()) {

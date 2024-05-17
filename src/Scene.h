@@ -12,12 +12,10 @@ private:
 
 	std::vector<GameObject*> gameObjects;
 public:
-	~Scene();
+	virtual ~Scene();
 
 	void addGameObject(GameObject* gameObject);
 	const std::vector<GameObject*>& getGameObjects() const;
 
 	virtual void frame(float dt) final;
-
-	bool rendering = true;
 };

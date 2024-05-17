@@ -8,5 +8,6 @@ Wall::Wall(const Rectangle& collider) : GameObject()
 
 void Wall::render()
 {
+	if (!playerInLight) [[unlikely]] return;
 	DrawRectangleRec(collider, DARKBLUE);
 }

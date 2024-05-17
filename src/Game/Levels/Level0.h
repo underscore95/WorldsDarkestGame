@@ -5,9 +5,10 @@
 class Level0 : public Level {
 public:
 	void load(GameScene* gameScene) override {
-		gameScene->addGameObject(new Wall({ 200, 200, 100, 100 }));
+		gameScene->addGameObject(new Wall({ 200, 300, 300, 350 })); 
+		gameScene->addGameObject(new Wall({ 500, 300, 350, 35 }));
 
-		gameScene->addGameObject(new PathEnemy<2>({ { {400, 500}, {400, 250} } }, 300.0));
+		gameScene->addGameObject(new Light({ 1080, 100, 100, 100 }));
 	}
 
 	Goal* getGoal() override {

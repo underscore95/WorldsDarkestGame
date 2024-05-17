@@ -34,12 +34,10 @@ void Scene::frame(float dt)
 	}
 	update(dt);
 
-	if (rendering) {
-		for (auto& gameObject : gameObjects) {
-			gameObject->render();
-		}
-		render();
+	for (auto& gameObject : gameObjects) {
+		gameObject->render();
 	}
+	render();
 
 	for (size_t i = 0; i < gameObjects.size(); i++) {
 		if (gameObjects[i]->isDead()) {

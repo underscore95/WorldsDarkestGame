@@ -31,4 +31,6 @@ public:
 	}
 
 	[[nodiscard]] const bool isColliding(const uint64_t collisionMask) const;
+
+	static bool playerInLight;
 };

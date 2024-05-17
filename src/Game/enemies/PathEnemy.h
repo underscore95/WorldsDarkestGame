@@ -31,8 +31,4 @@ public:
 			collider.y += direction.y;
 		}
 	}
-
-	void render() override {
-		DrawRectangleRec(collider, RED);
-	}
 };

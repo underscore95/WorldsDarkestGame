@@ -6,9 +6,9 @@
 std::unique_ptr<Level> Level::getLevel(unsigned int level)
 {
 	switch (level) {
-	case 1:
-		return std::make_unique<Level0>();
 	case 0:
+		return std::make_unique<Level0>();
+	case 1:
 		return std::make_unique<Level1>();
 
 	default:

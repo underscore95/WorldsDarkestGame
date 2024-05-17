@@ -37,4 +37,5 @@ GameScene::GameScene(unsigned int level) : player(level)
 	// Player
 	addGameObject(&player);
 
+	GameObject::playerInLight = true;
 }

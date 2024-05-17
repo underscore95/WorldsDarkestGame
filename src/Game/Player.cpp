@@ -51,14 +51,18 @@ void Player::update(float dt)
 	if (isMoving) {
 		isMoving = false;
 
-		getScene().rendering = isColliding(LIGHT_AREA);
+		playerInLight = isColliding(LIGHT_AREA);
 	}
 
 	if (isColliding(ENEMY)) [[unlikely]] {
 		setScene(new GameOverScene("You Died! You reached level " + std::to_string(level) + "!"));
 		}
 
-		if (isColliding(GOAL)) [[unlikely]] {
+		bool reachedGoal = isColliding(GOAL);
+#ifndef NDEBUG
+		reachedGoal = reachedGoal || IsKeyPressed(KEY_G);
+#endif
+		if (reachedGoal) [[unlikely]] {
 			if (level >= 1)
 				setScene(new GameOverScene("You have completed all the levels!"));
 			else
