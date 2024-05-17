@@ -4,6 +4,7 @@
 #include <cassert>
 #include <iostream>
 #include "../GameOverScene.h"
+#include "Portal.h"
 
 void Player::handleInput(float dt)
 {
@@ -46,6 +47,15 @@ void Player::update(float dt)
 		isMoving = false;
 
 		playerInLight = isColliding(LIGHT_AREA);
+	}
+
+	OptionalCollider portalCollision = isColliding(PORTAL);
+	if (portalCollision) [[unlikely]] {
+		Portal* portal = dynamic_cast<Portal*>(portalCollision.object);
+		assert(portal != nullptr);
+		collider.x = portal->getDest().x - 32;
+		collider.y = portal->getDest().y - 32;
+		return;
 	}
 
 	if (isColliding(ENEMY)) [[unlikely]] {

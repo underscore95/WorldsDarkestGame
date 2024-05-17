@@ -7,6 +7,7 @@
 #include <memory>
 #include <raylib.h>
 #include "../Goal.h"
+#include "../Portal.h"
 
 class Level {
 public:
