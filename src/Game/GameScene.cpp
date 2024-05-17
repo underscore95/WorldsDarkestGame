@@ -3,9 +3,13 @@
 #include "Wall.h"
 #include "Goal.h"
 #include "Levels/Level.h"
+#include "../Game.h"
 
 void GameScene::handleInput(float dt)
 {
+	if (IsKeyPressed(KEY_R)) {
+		setScene(new GameScene(level));
+	}
 }
 
 void GameScene::update(float dt)
@@ -13,11 +17,14 @@ void GameScene::update(float dt)
 
 }
 
+const std::string restartText = "Press R to restart";
+
 void GameScene::render()
 {
+	DrawText(restartText.c_str(), 20, 20, 20, WHITE);
 }
 
-GameScene::GameScene(unsigned int level) : player(level)
+GameScene::GameScene(unsigned int level) : level(level), player(level)
 {
 	// Spawn light at player spawn
 	addGameObject(new Light({ player.getCollider().x - (player.getCollider().width / 2), player.getCollider().y - (player.getCollider().height / 2), 100, 100 }));

@@ -4,8 +4,6 @@
 #include "Utils/Math.h"
 
 class GameObject {
-private:
-
 protected:
 	bool alive = true; // If false, the object will be removed from the game after the current frame
 	Rectangle collider{ 0,0, 0, 0 };

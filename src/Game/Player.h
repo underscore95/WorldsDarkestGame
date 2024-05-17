@@ -7,7 +7,6 @@ private:
 	float speed = 300.0;
 	bool isMoving = false;
 	unsigned int level;
-	float secsAlive = 0;
 public:
 	Player(unsigned int level);
 

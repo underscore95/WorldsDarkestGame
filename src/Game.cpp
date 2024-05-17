@@ -20,7 +20,13 @@ int main() {
 	PlayMusicStream(music);
 #endif
 
-	scene = new GameScene(0);
+#ifdef NDEBUG
+	constexpr int level = 0;
+#else
+	constexpr int level = 3;
+#endif
+
+	scene = new GameScene(level);
 
 	float dt = 1.0 / 60.0;
 

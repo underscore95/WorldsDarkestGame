@@ -17,6 +17,8 @@ private:
 	Player player;
 	Goal* goal;
 
+	unsigned int level;
+
 public:
 	GameScene(unsigned int level = 0);
 };

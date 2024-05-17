@@ -7,9 +7,6 @@
 
 void Player::handleInput(float dt)
 {
-	if (secsAlive < 1)
-		return;
-
 	Vector2 dp = { 0, 0 };
 	if (IsKeyDown(KEY_W)) dp.y -= 1;
 	if (IsKeyDown(KEY_S)) dp.y += 1;
@@ -45,9 +42,6 @@ Player::Player(unsigned int level) : level{ level }
 
 void Player::update(float dt)
 {
-	if (secsAlive < 1)
-		secsAlive += dt;
-
 	if (isMoving) {
 		isMoving = false;
 
