@@ -4,11 +4,13 @@
 #include "Goal.h"
 #include "Levels/Level.h"
 #include "../Game.h"
+#include <string>
 
 void GameScene::handleInput(float dt)
 {
 	if (IsKeyPressed(KEY_R)) {
 		setScene(new GameScene(level));
+		++deaths;
 	}
 }
 
@@ -17,10 +19,9 @@ void GameScene::update(float dt)
 
 }
 
-const std::string restartText = "Press R to restart";
-
 void GameScene::render()
 {
+	const std::string restartText = std::to_string(deaths) + " deaths.\nPress R to restart";
 	DrawText(restartText.c_str(), 20, 20, 20, WHITE);
 }
 

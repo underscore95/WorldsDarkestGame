@@ -62,6 +62,7 @@ void Player::update(float dt)
 
 	if (isColliding(ENEMY)) [[unlikely]] {
 		setScene(new GameScene(level));
+		++deaths;
 		return;
 		}
 
@@ -71,7 +72,7 @@ void Player::update(float dt)
 #endif
 		if (reachedGoal) [[unlikely]] {
 			if (level >= 6)
-				setScene(new GameOverScene("You have completed all the levels!"));
+				setScene(new GameOverScene("You have completed all the levels! (" + std::to_string(deaths) + " deaths)"));
 			else
 				setScene(new GameScene(level + 1));
 			}
