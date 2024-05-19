@@ -11,7 +11,7 @@ Door::Door(Scene* scene, const Rectangle& collider, const Vector2& key, const Co
 	this->collider = collider;
 	collisionMask = GameObject::WALL;
 
-	Key* keyObj = new Key(this, key, this->color, dark);
+	Key* keyObj = new Key(this, key, this->color);
 	scene->addGameObject(keyObj);
 }
 
@@ -21,5 +21,5 @@ void Door::render()
 	if (collisionMask == GameObject::NONE) return;
 
 	DrawRectangleRec(collider, color);
-	DrawCircle(collider.x + collider.width / 2.0, collider.y + collider.height / 2.0, 5, dark);
+	DrawRectangle(collider.x + collider.width / 2.0 - 4, collider.y + collider.height / 2.0 - 4, 8, 8, dark);
 }

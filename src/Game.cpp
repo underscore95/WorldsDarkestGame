@@ -23,7 +23,7 @@ int main() {
 #ifdef NDEBUG
 	constexpr int level = 0;
 #else
-	constexpr int level = 4;
+	constexpr int level = 5;
 #endif
 
 	scene = new GameScene(level);

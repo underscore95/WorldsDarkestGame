@@ -8,11 +8,10 @@ class Key : public GameObject {
 private:
 	Door* door;
 	const Vector2 location;
-	const Color& color;
-	const Color& dark;
+	const Color dark;
 
 public:
-	Key(Door* door, const Vector2& location, const Color& color, const Color& dark);
+	Key(Door* door, const Vector2& location, const Color& dark);
 
 	void handleInput(float dt) override {};
 	void update(float dt) override;
