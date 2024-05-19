@@ -70,7 +70,7 @@ void Player::update(float dt)
 		reachedGoal = reachedGoal || IsKeyPressed(KEY_G);
 #endif
 		if (reachedGoal) [[unlikely]] {
-			if (level >= 100)
+			if (level >= 6)
 				setScene(new GameOverScene("You have completed all the levels!"));
 			else
 				setScene(new GameScene(level + 1));
@@ -80,4 +80,10 @@ void Player::update(float dt)
 void Player::render()
 {
 	DrawRectangleRec(collider, WHITE);
+}
+
+void Player::teleport(const Vector2& position)
+{
+	collider.x = position.x;
+	collider.y = position.y;
 }

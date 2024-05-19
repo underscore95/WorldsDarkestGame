@@ -13,4 +13,6 @@ public:
 	void handleInput(float dt) override;
 	void update(float dt) override;
 	void render() override;
+
+	void teleport(const Vector2& position);
 };

@@ -16,4 +16,6 @@ public:
 	virtual Goal* getGoal() = 0;
 
 	[[nodiscard]] static std::unique_ptr<Level> getLevel(unsigned int level);
+
+	[[nodiscard]] constexpr virtual Vector2 getPlayerSpawn() { return { 1280.0 / 2.0, 720.0 / 2.0}; }
 };

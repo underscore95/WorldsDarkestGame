@@ -21,9 +21,13 @@ int main() {
 #endif
 
 #ifdef NDEBUG
+	HideCursor();
+#endif
+
+#ifdef NDEBUG
 	constexpr int level = 0;
 #else
-	constexpr int level = 5;
+	constexpr int level = 0;
 #endif
 
 	scene = new GameScene(level);

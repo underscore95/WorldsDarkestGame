@@ -7,6 +7,7 @@
 #include "Level3.h"
 #include "Level4.h"
 #include "Level5.h"
+#include "Level6.h"
 
 std::unique_ptr<Level> Level::getLevel(unsigned int level)
 {
@@ -23,6 +24,8 @@ std::unique_ptr<Level> Level::getLevel(unsigned int level)
 		return std::make_unique<Level4>();
 	case 5:
 		return std::make_unique<Level5>();
+	case 6:
+		return std::make_unique<Level6>();
 
 	default:
 		std::cerr << "Level " << level << " not found" << std::endl;

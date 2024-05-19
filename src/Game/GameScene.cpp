@@ -26,6 +26,9 @@ void GameScene::render()
 
 GameScene::GameScene(unsigned int level) : level(level), player(level)
 {
+	auto gameLevel = Level::getLevel(level);
+	player.teleport(gameLevel->getPlayerSpawn());
+
 	// Spawn light at player spawn
 	addGameObject(new Light({ player.getCollider().x - (player.getCollider().width / 2), player.getCollider().y - (player.getCollider().height / 2), 100, 100 }));
 
@@ -36,7 +39,6 @@ GameScene::GameScene(unsigned int level) : level(level), player(level)
 	addGameObject(new Wall({ 1180, 0, 100, 1180 }));
 
 	// Load level
-	auto gameLevel = Level::getLevel(level);
 	gameLevel->load(this);
 	goal = gameLevel->getGoal();
 	addGameObject(goal);

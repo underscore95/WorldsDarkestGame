@@ -11,11 +11,10 @@ public:
 	}
 
 	~Enemy() {
-		std::cout << "Enemy destroyed" << std::endl;
-
 	}
 
 	void handleInput(float dt) override {};
+	void update(float dt) override {};
 	void render() override {
 		if (!playerInLight) [[unlikely]] return;
 		DrawRectangleRec(collider, RED);
